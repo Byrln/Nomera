@@ -1,9 +1,12 @@
 import { readFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
-import { getServerEnvironment } from "@nomera/config/server";
 import postgres from "postgres";
+import { databaseEnvironmentSchema } from "../packages/schemas/src/environment";
 
-const database = postgres(getServerEnvironment().DATABASE_URL, {
+const { DATABASE_URL } = databaseEnvironmentSchema.parse({
+  DATABASE_URL: process.env.DATABASE_URL,
+});
+const database = postgres(DATABASE_URL, {
   max: 1,
   connect_timeout: 10,
   prepare: false,

@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "nomera",
+      "dependencies": {
+        "postgres": "^3.4.7",
+      },
       "devDependencies": {
         "@biomejs/biome": "2.5.13",
         "@types/node": "22.20.2",

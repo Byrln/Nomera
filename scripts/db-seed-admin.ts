@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
-import { getServerEnvironment } from "@nomera/config/server";
-import { hashPassword } from "@nomera/postgres/server/auth";
 import postgres from "postgres";
+import { hashPassword } from "../packages/postgres/src/server/password";
+import { databaseEnvironmentSchema } from "../packages/schemas/src/environment";
 
 const email = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
 const password = process.env.SEED_ADMIN_PASSWORD;
@@ -12,7 +12,10 @@ if (!email || !password || !tenantName) {
   );
 }
 
-const database = postgres(getServerEnvironment().DATABASE_URL, {
+const { DATABASE_URL } = databaseEnvironmentSchema.parse({
+  DATABASE_URL: process.env.DATABASE_URL,
+});
+const database = postgres(DATABASE_URL, {
   max: 1,
   connect_timeout: 10,
   prepare: false,
