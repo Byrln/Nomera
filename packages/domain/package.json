@@ -1,0 +1,24 @@
+{
+  "name": "@nomera/domain",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./errors": "./src/errors.ts",
+    "./tenancy": "./src/tenancy.ts",
+    "./audit": "./src/audit.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@nomera/schemas": "workspace:*",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@nomera/typescript-config": "workspace:*"
+  }
+}

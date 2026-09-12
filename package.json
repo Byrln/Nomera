@@ -1,0 +1,35 @@
+{
+  "name": "nomera",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=22",
+    "bun": ">=1.4.2"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "start": "bun --cwd apps/admin start",
+    "db:migrate": "bun scripts/db-migrate.ts",
+    "db:seed:admin": "bun scripts/db-seed-admin.ts",
+    "lint": "turbo lint && biome check .",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test && vitest run --config tooling/vitest.config.ts",
+    "format": "biome check --write .",
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.13",
+    "@types/node": "22.20.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "turbo": "2.10.11",
+    "typescript": "^6.0.3",
+    "vitest": "4.1.8"
+  }
+}

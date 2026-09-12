@@ -1,0 +1,22 @@
+{
+  "Common": {
+    "skip": "Skip to content",
+    "theme": "Toggle color theme",
+    "language": "Switch to Mongolian"
+  },
+  "Page": {
+    "eyebrow": "NOMERA STOREFRONT",
+    "title": "Storefront Foundation",
+    "description": "Space for a new perspective. A quiet beginning for the traveler-facing side of NOMERA.",
+    "cta": "Explore the foundation",
+    "imageAlt": "Abstract landscape illustration with layered hills and a sun",
+    "imageCaption": "Image layout study · Illustration",
+    "typeTitle": "Thoughtful typography",
+    "typeDescription": "An editorial rhythm, with equal care for Mongolian and English.",
+    "spaceTitle": "Room to breathe",
+    "spaceDescription": "Flexible image containers and generous spacing, from mobile to desktop.",
+    "sharedTitle": "A common foundation",
+    "sharedDescription": "Shared primitives, with a distinct expression for the public storefront.",
+    "footer": "Foundation preview · Initial setup"
+  }
+}

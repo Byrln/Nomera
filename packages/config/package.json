@@ -1,0 +1,23 @@
+{
+  "name": "@nomera/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./server": "./src/server.ts",
+    "./postcss": "./postcss.mjs"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@nomera/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "@nomera/schemas": "workspace:*",
+    "server-only": "^0.0.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@nomera/postgres",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts",
+    "./server/auth": "./src/server/auth.ts",
+    "./server/tenant": "./src/server/tenant.ts",
+    "./server/errors": "./src/server/errors.ts",
+    "./realtime": "./src/realtime.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@nomera/config": "workspace:*",
+    "@nomera/domain": "workspace:*",
+    "@nomera/schemas": "workspace:*",
+    "client-only": "^0.0.1",
+    "postgres": "^3.4.7",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@nomera/typescript-config": "workspace:*"
+  }
+}
