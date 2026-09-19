@@ -1,0 +1,35 @@
+.nomera-storefront {
+  --sf-background: #f8f8f3;
+  --sf-surface: #ffffff;
+  --sf-foreground: #172b25;
+  --sf-muted: #56655e;
+  --sf-border: #d8ddd7;
+  --sf-heading-font: var(--sf-brand-heading-font, var(--font-nomera-serif));
+  --sf-body-font: var(--font-nomera-sans);
+  --sf-radius-sm: 6px;
+  --sf-radius-md: 12px;
+  --sf-radius-lg: 18px;
+  --sf-container: 80rem;
+  --sf-section-space: clamp(2.5rem, 5cqi, 4.5rem);
+  --sf-inset: clamp(1rem, 4cqi, 4rem);
+  --sf-overlay: #091711;
+  --sf-on-image: #ffffff;
+  --background: var(--sf-background);
+  --foreground: var(--sf-foreground);
+  --card: var(--sf-surface);
+  --card-foreground: var(--sf-foreground);
+  --popover: var(--sf-surface);
+  --popover-foreground: var(--sf-foreground);
+  --primary: var(--sf-primary);
+  --primary-foreground: var(--sf-primary-foreground);
+  --accent: var(--sf-accent);
+  --accent-foreground: var(--sf-accent-foreground);
+  --muted: var(--sf-background);
+  --muted-foreground: var(--sf-muted);
+  --border: var(--sf-border);
+  --input: var(--sf-border);
+  --ring: var(--sf-foreground);
+  --radius: var(--sf-radius-md);
+  --secondary: var(--sf-background);
+  --secondary-foreground: var(--sf-foreground);
+}

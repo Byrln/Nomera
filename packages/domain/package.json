@@ -6,8 +6,15 @@
   "exports": {
     ".": "./src/index.ts",
     "./errors": "./src/errors.ts",
+    "./dashboard": "./src/dashboard.ts",
+    "./tours": "./src/tours.ts",
     "./tenancy": "./src/tenancy.ts",
-    "./audit": "./src/audit.ts"
+    "./audit": "./src/audit.ts",
+    "./operations": "./src/operations.ts",
+    "./finance": "./src/finance.ts",
+    "./storefront": "./src/storefront.ts",
+    "./journey": "./src/journey.ts",
+    "./media": "./src/media.ts"
   },
   "scripts": {
     "lint": "biome check .",

@@ -1,5 +1,12 @@
 export { loginCredentialsSchema, loginSessionSchema } from "./auth";
 export {
+  type DashboardFilter,
+  type DashboardResponse,
+  dashboardFilterSchema,
+  dashboardResponseSchema,
+  defaultDashboardFilter,
+} from "./dashboard";
+export {
   type DatabaseEnvironment,
   databaseEnvironmentSchema,
   type PublicEnvironment,

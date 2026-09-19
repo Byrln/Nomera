@@ -1,0 +1,19 @@
+"use client";
+import { Alert, AlertDescription } from "@nomera/ui/components/alert";
+import { Button } from "@nomera/ui/components/button";
+import { useTranslations } from "next-intl";
+export default function ErrorView({ reset }: { reset: () => void }) {
+  const t = useTranslations("PublicStorefront");
+  return (
+    <div className="sf-section">
+      <Alert variant="destructive">
+        <AlertDescription>
+          {t("error")}
+          <Button variant="outline" onClick={reset}>
+            {t("retry")}
+          </Button>
+        </AlertDescription>
+      </Alert>
+    </div>
+  );
+}

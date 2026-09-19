@@ -1,0 +1,110 @@
+/* Editorial: wide journal opening, fine rules, dense story rhythm. */
+.sf-editorial {
+  --sf-background: #fffefa;
+  --sf-foreground: #193c32;
+  --sf-muted: #58675e;
+  --sf-radius-md: 6px;
+  --sf-radius-lg: 6px;
+  --sf-heading-font: var(--sf-brand-heading-font, var(--font-nomera-serif));
+}
+.sf-editorial > .sf-header {
+  border-bottom: 1px solid var(--sf-border);
+}
+.sf-hero-journal {
+  margin-top: 1.5rem;
+  padding: 4rem var(--sf-inset) 0;
+  min-height: 550px;
+  color: var(--sf-on-image);
+  background: var(--sf-foreground);
+}
+.sf-hero-journal .sf-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.sf-hero-journal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #102d27eb, #102d2720);
+}
+.sf-hero-journal .sf-hero-copy {
+  max-width: 42rem;
+  padding-bottom: 3rem;
+}
+.sf-hero-journal h1 {
+  font-size: clamp(2.5rem, 5cqi, 4.5rem);
+  font-weight: 500;
+}
+.sf-hero-journal .sf-search-bar {
+  margin-bottom: -2rem;
+  align-self: end;
+}
+.sf-editorial .sf-featured {
+  padding-top: 5rem;
+}
+.sf-editorial .sf-section-heading {
+  border-bottom: 1px solid var(--sf-border);
+  padding-bottom: 1rem;
+}
+.sf-editorial .sf-tour {
+  border: 0;
+  background: transparent;
+}
+.sf-editorial .sf-tour-content {
+  padding: 1.25rem 0;
+}
+.sf-editorial .sf-tour-grid[data-count="4"] {
+  grid-template-columns: 1.2fr 1fr;
+}
+.sf-editorial .sf-tour-grid[data-count="4"] .sf-tour:first-child {
+  grid-row: span 2;
+}
+.sf-editorial .sf-tour-grid[data-count="4"] .sf-tour:not(:first-child) {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1rem;
+}
+.sf-editorial .sf-tour-feature:has(.sf-tour-image) {
+  gap: 2rem;
+}
+.sf-editorial .sf-tour-feature .sf-tour-content {
+  padding: 2rem 0;
+}
+.sf-editorial .sf-destination .sf-media {
+  aspect-ratio: 4 / 3;
+}
+.sf-editorial .sf-testimonials {
+  text-align: center;
+  border-block: 1px solid var(--sf-border);
+}
+.sf-editorial .sf-testimonials .sf-copy {
+  font-family: var(--sf-heading-font);
+  font-size: 1.5rem;
+  margin-inline: auto;
+}
+.sf-hero-journal.sf-hero-no-image {
+  min-height: 0;
+  margin-top: 0;
+  padding-top: 3rem;
+}
+@container (max-width: 767px) {
+  .sf-hero-journal {
+    min-height: 560px;
+    margin-top: 0;
+    padding-top: 3rem;
+  }
+  .sf-editorial .sf-tour-grid[data-count="4"],
+  .sf-editorial .sf-tour-grid[data-count="4"] .sf-tour:not(:first-child) {
+    grid-template-columns: 1fr;
+  }
+  .sf-editorial .sf-tour-grid[data-count="4"] .sf-tour:first-child {
+    grid-row: auto;
+  }
+  .sf-editorial .sf-tour-feature:has(.sf-tour-image) {
+    gap: 0;
+  }
+}

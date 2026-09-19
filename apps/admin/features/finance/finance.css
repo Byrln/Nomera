@@ -1,0 +1,34 @@
+.finance-design {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.finance-design > .admin-page-heading,
+.finance-design > .admin-metrics {
+  margin-bottom: 0;
+}
+
+.finance-design .admin-metric p {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1100px) {
+  .finance-design .admin-metric > [data-slot="card-content"] {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .finance-design > .admin-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .finance-design .admin-metric > [data-slot="card-content"] {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1100px) {
+  .finance-design .admin-metric p:nth-child(2) {
+    font-size: 1.125rem;
+  }
+}

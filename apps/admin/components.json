@@ -16,5 +16,8 @@
     "utils": "@nomera/ui/lib/utils",
     "lib": "@/lib",
     "hooks": "@/hooks"
+  },
+  "registries": {
+    "@bklit": "https://ui.bklit.com/r/{name}.json"
   }
 }

@@ -2,9 +2,9 @@
 import { Button } from "@nomera/ui";
 import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
+import { useAdminTheme } from "@/components/admin-theme-provider";
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useAdminTheme();
   const t = useTranslations("Common");
   return (
     <Button

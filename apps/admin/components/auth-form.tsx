@@ -2,11 +2,13 @@
 import { resetRealtimeSession } from "@nomera/postgres/realtime";
 import { loginCredentialsSchema } from "@nomera/schemas/auth";
 import { Button, Input } from "@nomera/ui";
+import { Field, FieldError, FieldLabel } from "@nomera/ui/components/field";
 import { useQueryClient } from "@tanstack/react-query";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useActionState, useState } from "react";
 import { signIn } from "@/app/sign-in/actions";
+import { clearTourDrafts } from "@/features/tours/draft";
 
 export function AuthForm() {
   const t = useTranslations("Auth");
@@ -42,12 +44,13 @@ export function AuthForm() {
           return;
         }
         queryClient.clear();
+        clearTourDrafts();
         void resetRealtimeSession();
       }}
       aria-busy={pending}
     >
-      <div className="auth-field">
-        <label htmlFor="email">{t("email")}</label>
+      <Field className="auth-field" data-invalid={emailError}>
+        <FieldLabel htmlFor="email">{t("email")}</FieldLabel>
         <Input
           id="email"
           name="email"
@@ -76,13 +79,13 @@ export function AuthForm() {
           }}
         />
         {emailError && (
-          <p id="email-error" className="auth-error">
+          <FieldError id="email-error" className="auth-error">
             {t("invalidEmail")}
-          </p>
+          </FieldError>
         )}
-      </div>
-      <div className="auth-field">
-        <label htmlFor="password">{t("password")}</label>
+      </Field>
+      <Field className="auth-field" data-invalid={passwordError}>
+        <FieldLabel htmlFor="password">{t("password")}</FieldLabel>
         <div className="auth-password">
           <Input
             id="password"
@@ -100,8 +103,10 @@ export function AuthForm() {
               setPasswordError(false);
             }}
           />
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="icon"
             className="auth-password-toggle"
             onClick={() => setVisible(!visible)}
             aria-label={t(visible ? "hidePassword" : "showPassword")}
@@ -112,18 +117,18 @@ export function AuthForm() {
             ) : (
               <Eye size={18} aria-hidden="true" />
             )}
-          </button>
+          </Button>
         </div>
         {passwordError && (
-          <p id="password-error" className="auth-error">
+          <FieldError id="password-error" className="auth-error">
             {t("invalidPassword")}
-          </p>
+          </FieldError>
         )}
-      </div>
+      </Field>
       {state.error && (
-        <p role="alert" className="auth-error">
+        <FieldError className="auth-error">
           {t(`errors.${state.error}`)}
-        </p>
+        </FieldError>
       )}
       <Button type="submit" disabled={pending}>
         {t(pending ? "signingIn" : "signIn")}

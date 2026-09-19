@@ -1,0 +1,359 @@
+/* Hallmark · macrostructure: operational directory/detail and stage pipeline · studied: yes · source: supplied NOMERA references · P5 H4 E4 S5 R5 V4. Tastemaker: reference-locked compact density; no decorative motion. */
+.operations-workspace {
+  position: relative;
+}
+.op-metric-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+.op-metric-value {
+  display: block;
+  margin-top: 8px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.op-sales-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.op-sales-main,
+.op-sales-side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.op-panel-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.op-panel-heading > * {
+  min-width: 0;
+}
+.op-pipeline {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+.op-stage {
+  --stage-color: var(--primary);
+  display: flex;
+  height: auto;
+  min-height: 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  white-space: normal;
+  border-radius: var(--radius-sm);
+  border-top: 5px solid var(--stage-color);
+  background: color-mix(in oklch, var(--stage-color) 5%, var(--card));
+  padding: 12px;
+  color: var(--foreground);
+  text-align: left;
+}
+.op-stage > span:first-child {
+  min-height: 30px;
+  font-size: 11px;
+}
+.op-stage strong {
+  font-size: 23px;
+  line-height: 1;
+}
+.op-stage .op-stage-amount {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.op-stage[aria-pressed="true"] {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.op-stage-follow_up {
+  --stage-color: var(--chart-2);
+}
+.op-stage-proposal_sent {
+  --stage-color: var(--chart-3);
+}
+.op-stage-negotiation {
+  --stage-color: var(--chart-4);
+}
+.op-stage-won {
+  --stage-color: var(--chart-5);
+}
+.op-stage-lost {
+  --stage-color: var(--destructive);
+}
+.op-stage-badge {
+  color: var(--foreground);
+  background: color-mix(
+    in oklch,
+    var(--stage-color, var(--primary)) 12%,
+    var(--card)
+  );
+  white-space: nowrap;
+}
+.op-table-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.op-panel-heading .op-table-controls {
+  margin: 0;
+}
+.op-search {
+  width: 250px;
+  min-width: 0;
+}
+.op-funnel {
+  width: 100%;
+  height: 180px;
+  aspect-ratio: auto;
+}
+.op-funnel-summary {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  font-size: 12px;
+}
+.op-funnel-summary > svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.op-funnel-summary span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.op-activity-list {
+  display: grid;
+}
+.op-activity-list article {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.op-activity-list article:last-child {
+  border-bottom: 0;
+}
+.op-activity-list article > div {
+  min-width: 0;
+  flex: 1;
+}
+.op-activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--primary);
+}
+.op-activity-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.op-customer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+.op-customer-grid.op-no-selection {
+  grid-template-columns: minmax(0, 1fr);
+}
+.op-directory {
+  min-width: 0;
+}
+.op-directory [data-slot="card-content"] {
+  padding-inline: 0;
+}
+.op-directory :where([data-slot="card-content"]) > p {
+  padding: 0 16px;
+}
+.op-directory [data-slot="table-cell"],
+.op-directory [data-slot="table-head"] {
+  padding: 12px;
+  font-size: 11px;
+}
+.op-customer-name {
+  height: auto;
+  padding: 0;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--foreground);
+}
+.op-directory [data-state="selected"] {
+  background: var(--accent);
+}
+.op-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 16px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.op-customer-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.op-detail-tabs {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 12px;
+  height: auto;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.op-detail-tabs [data-slot="tabs-trigger"] {
+  flex: 0 1 auto;
+  padding: 8px 4px;
+  font-size: 12px;
+}
+.op-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.op-detail-grid [data-slot="card"] {
+  gap: 12px;
+  padding-block: 12px;
+  box-shadow: none;
+}
+.op-detail-grid [data-slot="card-header"],
+.op-detail-grid [data-slot="card-content"] {
+  padding-inline: 12px;
+}
+.op-detail-grid [data-slot="card-title"] {
+  font-size: 12px;
+}
+.op-detail-grid [data-slot="button"] {
+  font-size: 11px;
+  padding-inline: 0;
+  height: auto;
+}
+.op-country-chart {
+  height: 112px;
+  width: 100%;
+  aspect-ratio: auto;
+}
+.op-country-legend {
+  display: grid;
+  gap: 4px;
+  font-size: 10px;
+}
+.op-country-legend p {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.op-contact {
+  display: grid;
+  gap: 12px;
+}
+.op-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.op-contact svg {
+  width: 15px;
+  height: 15px;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+.op-export {
+  position: absolute;
+  top: 0;
+  right: 170px;
+}
+@media (max-width: 1250px) {
+  .op-customer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .op-sales-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .op-sales-side {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .op-export {
+    position: static;
+    align-self: flex-end;
+  }
+}
+@media (max-width: 767px) {
+  .op-pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .op-sales-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .op-panel-heading {
+    flex-wrap: wrap;
+  }
+  .op-table-controls {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .op-search {
+    flex: 1 1 160px;
+    width: auto;
+  }
+  .op-metric-content {
+    padding: 16px;
+    gap: 12px;
+  }
+  .op-metric-value {
+    font-size: 23px;
+  }
+}
+@media (max-width: 414px) {
+  .op-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .op-pipeline {
+    gap: 8px;
+  }
+  .op-stage {
+    padding: 8px;
+  }
+  .op-pagination {
+    flex-wrap: wrap;
+  }
+}
+
+.operations-workspace > .admin-page-heading,
+.operations-workspace > .admin-metrics {
+  margin-bottom: 0;
+}
+.operations-workspace .admin-metric {
+  padding-block: 0;
+}
+.operations-workspace .op-metric-content > div {
+  min-width: 0;
+}

@@ -1,11 +1,2 @@
-// Reserved identifiers only. No theme renderer or default tenant theme exists yet.
-export type StorefrontThemeId =
-  | "atlas"
-  | "nomad"
-  | "horizon"
-  | "editorial"
-  | "minimal";
-export interface StorefrontThemeDefinition {
-  id: StorefrontThemeId;
-  name: string;
-}
+export type { StorefrontThemeDefinition, StorefrontThemeId } from "./registry";
+export { themeDefinition, themeIds, themeRegistry } from "./registry";
