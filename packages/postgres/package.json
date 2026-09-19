@@ -7,9 +7,18 @@
     ".": "./src/index.ts",
     "./server": "./src/server.ts",
     "./server/auth": "./src/server/auth.ts",
+    "./server/dashboard": "./src/server/dashboard.ts",
+    "./server/tours": "./src/server/tours.ts",
     "./server/tenant": "./src/server/tenant.ts",
     "./server/errors": "./src/server/errors.ts",
-    "./realtime": "./src/realtime.ts"
+    "./realtime": "./src/realtime.ts",
+    "./server/operations": "./src/server/operations.ts",
+    "./server/finance": "./src/server/finance.ts",
+    "./server/storefront": "./src/server/storefront.ts",
+    "./server/storefront-quote": "./src/server/storefront-quote.ts",
+    "./server/journey": "./src/server/journey.ts",
+    "./server/media": "./src/server/media.ts",
+    "./server/admin": "./src/server/admin.ts"
   },
   "scripts": {
     "lint": "biome check .",

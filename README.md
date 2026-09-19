@@ -28,7 +28,16 @@ bun install
 bun dev
 ```
 
-Copy `apps/admin/.env.example` and `apps/storefront/.env.example` to their `.env.local` files and set a PostgreSQL `DATABASE_URL` for server-backed routes. Existing `.env.local` files are intentionally not overwritten.
+Copy `apps/admin/.env.example` and `apps/storefront/.env.example` to their `.env.local` files and set a PostgreSQL `DATABASE_URL` for server-backed routes. Existing `.env.local` files are intentionally not overwritten and are hidden from Git because they contain credentials.
+
+For the linked Railway PostgreSQL service, authenticate the Railway CLI once, then keep the private tunnel running in a separate terminal:
+
+```sh
+bunx @railway/cli login
+bun run db:tunnel
+```
+
+The local `DATABASE_URL` uses the Railway Postgres credentials with `127.0.0.1:55432`. The tunnel avoids exposing PostgreSQL publicly.
 
 ## Railway deployment
 
@@ -52,6 +61,7 @@ The seed command is never run automatically and no credentials are stored in the
 | Command | Purpose |
 | --- | --- |
 | `bun dev` | Start Admin and Storefront |
+| `bun run db:tunnel` | Open the private Railway PostgreSQL tunnel on port 55432 |
 | `bun run db:migrate` | Apply pending PostgreSQL migrations |
 | `bun run db:seed:admin` | Explicitly seed one owner account and tenant |
 | `bun run lint` | Run Biome and workspace lint checks |

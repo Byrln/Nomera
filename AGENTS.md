@@ -22,6 +22,7 @@ This file is the shared development policy for all agents. `CLAUDE.md` imports i
 - Query providers own a QueryClient per mounted app provider; never share user query caches globally on the server.
 - Use Zod for runtime validation and next-intl for localizable text. Default locale is `mn`; support `en` with matching catalog keys.
 - Use shadcn/Radix first, then appropriate 21st.dev or justified OSS source. No duplicate component systems or unnecessary UI/state/API/ORM libraries.
+- Product controls and data display must use source-owned shadcn components or inspected 21st.dev MCP components. Do not build custom HTML substitutes for available primitives. Raw HTML is limited to semantic page/form structure, text, necessary layout wrappers, hidden form fields and primitive internals. Preserve this requirement in subsequent phases.
 - Run shadcn with Bun from the app or `packages/ui`; inspect generated imports and dependencies. Use `@nomera/ui/lib/utils`, not an unrelated npm `cn` package.
 - Add only components actually needed. Read installed Next.js documentation before changing unfamiliar framework conventions.
 
@@ -39,7 +40,7 @@ Read the actual skill instructions before frontend work, and load their relevant
 
 These paths identify this workstation's installed skills. On another machine, resolve the same skill names from the available skill catalog or local skill directories. Never pretend an unread or missing skill was applied.
 
-- **Mobbin MCP — always use:** search for the relevant workflow or screen, inspect the returned visual evidence, and extract interaction patterns. Record source links and the pattern being adopted or rejected. Never blindly copy an individual screen.
+- **Mobbin MCP :** search for the relevant workflow or screen, inspect the returned visual evidence, and extract interaction patterns. Record source links and the pattern being adopted or rejected. Never blindly copy an individual screen.
 - **21st.dev MCP — always use:** search for the relevant component or composition, then inspect candidate source and dependencies before selecting it. A search does not authorize installation. Prefer an existing NOMERA primitive when it already solves the need; explain that choice briefly.
 - Check both MCPs in the current task; an old connection check is not proof of current availability. Keep queries narrow for small changes. Record empty results honestly.
 - If a skill or MCP is unavailable, attempt discovery/reconnection through available tools, record `not connected` or `misconfigured` and the concrete failure, then continue authorized work using inspected project components and available evidence. Clearly report the missing step; do not silently skip it or claim the full research workflow passed.
@@ -94,6 +95,9 @@ Use the skills together within the user's requested scope and the established pr
 - Database changes must be versioned in `db/migrations` and applied through the migration runner. Do not edit production data directly during setup.
 
 ## Design foundation
+
+- The user-approved September 12 admin screenshots supersede the previous Shopify visual direction. Follow [.tastemaker/style-lock.md](.tastemaker/style-lock.md) for all future admin work: navy 230px sidebar, white 60px header, blue actions, cool canvas, compact tables and 30px desktop page inset. Admin workspaces use the available width; the older 68rem limit below applies only where a focused reading/form surface needs it.
+- Preserve the admin-scoped tokens in `packages/ui/src/styles.css`; reference layouts use real tenant data and must not reproduce fictional screenshot metrics or integration statuses.
 
 - Semantic variables live in `packages/ui/src/styles.css`; no scattered raw component colors.
 - Use Tailwind 4 spacing (4px base), compact control gaps and larger section spacing. Containers: admin 68rem, storefront 80rem.

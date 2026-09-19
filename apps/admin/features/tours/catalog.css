@@ -1,0 +1,59 @@
+.tour-catalog .tour-filter-panel {
+  padding-block: 8px;
+}
+.tour-filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-inline: 12px;
+}
+.tour-filter-form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(140px, 1.5fr) minmax(110px, 1fr) minmax(
+      110px,
+      1fr
+    ) auto;
+  gap: 8px;
+}
+.tour-catalog .tour-published {
+  background: color-mix(in oklch, var(--success) 12%, var(--card));
+  color: var(--success);
+}
+@media (max-width: 1100px) {
+  .tour-filter-form {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .tour-filterbar [data-slot="tabs"] {
+    width: 100%;
+  }
+}
+
+.tour-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tour-catalog > .admin-page-heading,
+.tour-catalog > .admin-metrics {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1100px) {
+  .tour-catalog .admin-metric > [data-slot="card-content"] {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-catalog > .admin-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tour-catalog .admin-metric > [data-slot="card-content"] {
+    flex-direction: row;
+  }
+}

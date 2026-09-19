@@ -4,11 +4,26 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./renderer": "./src/renderer.tsx",
+    "./styles.css": "./src/styles.css",
+    "./money": "./src/money.ts",
+    "./filters": "./src/shared/tour-filters.tsx",
+    "./filter": "./src/filter.ts",
+    "./tokens": "./src/tokens.ts"
   },
   "scripts": {
     "lint": "biome check .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@nomera/schemas": "workspace:*",
+    "@nomera/ui": "workspace:*",
+    "lucide-react": "^1.21.0",
+    "next": "^16.3.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@nomera/typescript-config": "workspace:*"

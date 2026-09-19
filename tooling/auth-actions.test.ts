@@ -43,7 +43,7 @@ beforeEach(() => {
   });
   boundary.revoke.mockResolvedValue(undefined);
   boundary.tenant.mockResolvedValue({
-    context: { tenantId: "verified-tenant" },
+    context: { tenantId: "verified-tenant", roles: ["viewer"] },
   });
 });
 describe("authentication action boundary", () => {
@@ -104,6 +104,17 @@ describe("authentication action boundary", () => {
       "nomera_tenant",
       "verified-tenant",
       expect.objectContaining({ httpOnly: true }),
+    );
+  });
+  it("opens the dashboard only for a server-verified administrator", async () => {
+    boundary.session = "session-a";
+    boundary.tenant.mockResolvedValue({
+      context: { tenantId: "verified-tenant", roles: ["admin"] },
+    });
+    const data = new FormData();
+    data.set("role", "viewer");
+    await expect(selectWorkspace({}, data)).rejects.toThrow(
+      "redirect:/dashboard",
     );
   });
   it("preserves selection on failed authorization", async () => {

@@ -6,5 +6,5 @@ export default defineConfig({
       "@": fileURLToPath(new URL("../apps/admin", import.meta.url)),
     },
   },
-  test: { include: ["tooling/*.test.ts"] },
+  test: { include: ["tooling/*.test.ts", "apps/admin/features/**/*.test.ts"] },
 });

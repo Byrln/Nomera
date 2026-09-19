@@ -15,6 +15,7 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "start": "bun --cwd apps/admin start",
+    "db:tunnel": "bunx @railway/cli connect Postgres --tunnel-only --port 55432",
     "db:migrate": "bun scripts/db-migrate.ts",
     "db:seed:admin": "bun scripts/db-seed-admin.ts",
     "lint": "turbo lint && biome check .",

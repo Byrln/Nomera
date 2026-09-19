@@ -58,10 +58,16 @@ export async function selectWorkspace(
   _previous: AuthActionState,
   data: FormData,
 ): Promise<AuthActionState> {
+  let destination = "/workspaces";
   try {
     const secret = await readSession();
     if (!secret) throw new DomainError("UNAUTHENTICATED");
     const repo = await createTenantRepository(secret, data.get("tenantId"));
+    if (
+      repo.context.roles.some((role) => role === "owner" || role === "admin")
+    ) {
+      destination = "/dashboard";
+    }
     (await cookies()).set(
       tenantCookie,
       repo.context.tenantId,
@@ -70,5 +76,5 @@ export async function selectWorkspace(
   } catch (error) {
     return { error: toPublicError(error).code };
   }
-  redirect("/workspaces");
+  redirect(destination);
 }

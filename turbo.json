@@ -20,6 +20,11 @@
     },
     "lint": { "dependsOn": ["^lint"] },
     "typecheck": { "dependsOn": ["^typecheck"] },
-    "test": { "dependsOn": ["^typecheck"], "outputs": [] }
+    "test": {
+      "dependsOn": ["^typecheck"],
+      "outputs": [],
+      "cache": false,
+      "passThroughEnv": ["TEST_DATABASE_URL"]
+    }
   }
 }

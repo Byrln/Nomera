@@ -1,0 +1,47 @@
+/* Hallmark: travel discovery; studied user references; existing Noto typography. */
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+@import "./styles/atlas.css";
+@import "./styles/secondary.css";
+@import "./styles/nomad.css";
+@import "./styles/horizon.css";
+@import "./styles/editorial.css";
+@import "./styles/minimal.css";
+.nomera-storefront .sf-hero-no-image h1 {
+  font-size: clamp(2.2rem, 4cqi, 3.5rem);
+}
+.nomera-storefront .sf-hero-no-image .sf-hero-copy {
+  max-width: 60rem;
+  padding-bottom: 2rem;
+}
+.nomera-storefront .sf-hero-no-image::before {
+  background: none;
+}
+.nomera-storefront .sf-hero-no-image {
+  min-height: 0;
+}
+.nomera-storefront .sf-hero-no-image .sf-search-bar {
+  margin-top: 0;
+}
+.sf-hero-immersive::before {
+  background: #122027a3;
+}
+.sf-hero-panorama:has(.sf-hero-image)::before {
+  background: #101c2199;
+}
+.sf-hero-journal .sf-hero-copy > a {
+  background: var(--sf-accent);
+  color: var(--sf-accent-foreground);
+}
+.sf-hero:has(.sf-hero-image[data-failed="true"]) {
+  min-height: 0;
+}
+.sf-hero-image[data-failed="true"] {
+  display: none;
+}
+.sf-hero-split:has(.sf-hero-image[data-failed="true"]) {
+  grid-template-columns: 1fr;
+}
+.sf-hero-split:has(.sf-hero-image[data-failed="true"]) .sf-search-bar {
+  margin-inline: 0;
+}

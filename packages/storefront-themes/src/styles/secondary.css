@@ -1,0 +1,201 @@
+.sf-page-title {
+  font-size: clamp(2.25rem, 4.5cqi, 4rem);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.035em;
+}
+.sf-listing-header {
+  margin-bottom: 2rem;
+}
+.sf-listing-header p {
+  color: var(--sf-muted);
+}
+.sf-filter-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius-md);
+  margin-bottom: 2rem;
+}
+.sf-filter-form [data-slot="select-trigger"] {
+  width: 100%;
+  min-height: 44px;
+}
+.sf-filter-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: end;
+}
+.sf-listing-mobile-filters {
+  display: none;
+}
+.sf-result-count {
+  margin: 1.5rem 0;
+  color: var(--sf-muted);
+  font-size: 0.875rem;
+}
+.sf-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.75rem;
+  margin-block: 2rem;
+}
+.sf-gallery > .sf-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--sf-radius-md);
+}
+.sf-gallery > .sf-media:first-child {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.sf-gallery[data-count="1"] {
+  grid-template-columns: 1fr;
+}
+.sf-gallery[data-count="1"] > .sf-media {
+  aspect-ratio: 2.25 / 1;
+}
+.sf-detail-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(19rem, 1fr);
+  gap: 4rem;
+  margin-top: 2.5rem;
+}
+.sf-booking-panel {
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius-md);
+  background: var(--sf-surface);
+}
+.sf-booking-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.sf-booking-panel [data-slot="card"] {
+  box-shadow: none;
+  border-radius: var(--sf-radius-sm);
+}
+.sf-detail-section {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--sf-border);
+  scroll-margin-top: 2rem;
+}
+.sf-detail-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  border-block: 1px solid var(--sf-border);
+  padding-block: 0.75rem;
+}
+.sf-detail-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.sf-mobile-booking {
+  display: none;
+}
+.sf-policy-layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr);
+  gap: 4rem;
+}
+.sf-policy-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+.sf-policy-nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+.sf-checkout {
+  max-width: 76rem;
+}
+.sf-checkout [data-slot="card"] {
+  box-shadow: none;
+  border-radius: var(--sf-radius-md);
+}
+.sf-checkout .sf-media {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--sf-radius-sm);
+}
+.sf-checkout [data-slot="input"] {
+  min-height: 44px;
+}
+.sf-checkout-policy {
+  padding: 1rem;
+  border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius-sm);
+  margin-top: 1rem;
+}
+.sf-success {
+  max-width: 50rem;
+}
+@container (max-width: 1023px) {
+  .sf-detail-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sf-booking-panel {
+    position: static;
+  }
+  .sf-filter-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@container (max-width: 767px) {
+  .sf-listing-desktop-filters {
+    display: none;
+  }
+  .sf-listing-mobile-filters {
+    display: block;
+  }
+  .sf-filter-form {
+    grid-template-columns: 1fr;
+    padding: 0;
+    border: 0;
+  }
+  .sf-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sf-gallery > .sf-media:first-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+  }
+  .sf-gallery[data-count="1"] > .sf-media {
+    aspect-ratio: 4 / 3;
+  }
+  .sf-policy-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sf-policy-nav {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+  .sf-mobile-booking {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    padding: 1rem;
+    background: var(--sf-surface);
+    border-top: 1px solid var(--sf-border);
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    z-index: 5;
+  }
+}

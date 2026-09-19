@@ -12,6 +12,7 @@ import {
   resourceIdSchema,
   teamIdentitySchema,
 } from "@nomera/schemas";
+import type { TransactionSql } from "postgres";
 import { type DatabaseClient, getDatabase } from "../server";
 import { databaseRead } from "./errors";
 
@@ -22,7 +23,7 @@ function digestSession(secret: string) {
 export async function createTenantRepository(
   session: string,
   selectedTenant: unknown,
-  sql: DatabaseClient = getDatabase(),
+  sql: DatabaseClient | TransactionSql = getDatabase(),
 ) {
   if (!session.trim()) throw new DomainError("UNAUTHENTICATED");
   const tenantId = resourceIdSchema.safeParse(selectedTenant);
@@ -32,10 +33,10 @@ export async function createTenantRepository(
       sql<
         Array<{
           user_id: string;
-          membership_id: string;
-          tenant_id: string;
-          tenant_name: string;
-          role: string;
+          membership_id: string | null;
+          tenant_id: string | null;
+          tenant_name: string | null;
+          role: string | null;
           status: boolean;
           email_verified: boolean;
         }>
@@ -44,21 +45,23 @@ export async function createTenantRepository(
              o.name AS tenant_name, m.role, u.status, u.email_verified
       FROM sessions s
       JOIN users u ON u.id = s.user_id
-      JOIN memberships m ON m.user_id = s.user_id
+      LEFT JOIN memberships m ON m.user_id = s.user_id
         AND m.tenant_id = ${tenantId.data}
         AND m.active = true
-      JOIN organizations o ON o.id = m.tenant_id
+      LEFT JOIN organizations o ON o.id = m.tenant_id
       WHERE s.token_digest = ${digestSession(session)}
         AND s.revoked_at IS NULL
         AND s.expires_at > now()
       LIMIT 2
     `,
   );
-  if (rows.length !== 1) throw new DomainError("FORBIDDEN");
+  if (rows.length !== 1) throw new DomainError("UNAUTHENTICATED");
   const row = rows[0];
-  if (!row) throw new DomainError("FORBIDDEN");
+  if (!row) throw new DomainError("UNAUTHENTICATED");
   if (!row.status) throw new DomainError("UNAUTHENTICATED");
   if (!row.email_verified) throw new DomainError("FORBIDDEN");
+  if (!row.membership_id || !row.tenant_id || !row.tenant_name || !row.role)
+    throw new DomainError("FORBIDDEN");
   const gateway: IdentityGateway = {
     getCurrentUser: async () =>
       accountIdentitySchema.parse({

@@ -16,10 +16,10 @@ const serif = Noto_Serif({
   display: "swap",
 });
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Page");
+  const t = await getTranslations("Dashboard");
   return {
-    title: `NOMERA · ${t("title")}`,
-    description: t("description"),
+    title: `NOMERA · ${t("platform")}`,
+    description: t("platform"),
     robots: { index: false, follow: false },
   };
 }
@@ -31,7 +31,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${sans.variable} ${serif.variable} font-sans antialiased`}
+        className={`nomera-admin ${sans.variable} ${serif.variable} font-sans antialiased`}
       >
         <a className="skip-link" href="#main">
           {t("skip")}

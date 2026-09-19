@@ -1,0 +1,124 @@
+/* Nomad: cinematic expedition opening, sand accents and dark forest chapter breaks. */
+.sf-nomad {
+  --sf-background: #f7f5ef;
+  --sf-foreground: #142c27;
+  --sf-muted: #54645d;
+  --sf-radius-md: 10px;
+  --sf-heading-font: var(--sf-brand-heading-font, var(--font-nomera-serif));
+}
+.sf-nomad:has(.sf-hero-photographic) > .sf-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  color: var(--sf-on-image);
+}
+.sf-nomad:has(.sf-hero-photographic) > .sf-header [data-slot="button"] {
+  color: var(--sf-on-image);
+  background: transparent;
+  border-color: #ffffff66;
+}
+.sf-hero-cinematic {
+  max-width: none;
+  min-height: 680px;
+  padding: 8rem max(var(--sf-inset), calc((100% - 72rem) / 2)) 5rem;
+  background: var(--sf-foreground);
+  color: var(--sf-on-image);
+}
+.sf-hero-cinematic .sf-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.sf-hero-cinematic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #091b18eb, #091b1850);
+}
+.sf-hero-cinematic .sf-hero-copy {
+  max-width: 43rem;
+}
+.sf-hero-cinematic h1 {
+  font-size: clamp(2.8rem, 6cqi, 5.5rem);
+  font-weight: 500;
+}
+.sf-hero-cinematic .sf-hero-copy > a {
+  background: var(--sf-accent);
+  color: var(--sf-accent-foreground);
+}
+.sf-hero-cinematic .sf-search-bar {
+  margin-top: 3rem;
+  max-width: 65rem;
+}
+.sf-hero-cinematic.sf-hero-no-image {
+  min-height: 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.sf-nomad .sf-stats {
+  background: var(--sf-foreground);
+  color: var(--sf-background);
+  max-width: none;
+  padding-inline: max(var(--sf-inset), calc((100% - 72rem) / 2));
+}
+.sf-nomad .sf-story-image {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.sf-nomad .sf-story-image > .sf-media {
+  aspect-ratio: 5 / 4;
+}
+.sf-nomad .sf-tour {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+}
+.sf-nomad .sf-tour-image {
+  border-radius: var(--sf-radius-md);
+}
+.sf-nomad .sf-tour-content {
+  padding-inline: 0;
+}
+.sf-nomad .sf-tour-feature .sf-tour-content {
+  padding-inline: 2rem;
+}
+.sf-nomad .sf-destination {
+  position: relative;
+  background: var(--sf-foreground);
+  color: var(--sf-on-image);
+}
+.sf-nomad .sf-destination:has(.sf-media) [data-slot="card-content"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, #091b18ed);
+  padding-top: 4rem;
+}
+.sf-nomad > .sf-footer {
+  background: var(--sf-foreground);
+  color: var(--sf-background);
+  --sf-muted: #bbc7be;
+  max-width: none;
+  padding-inline: max(var(--sf-inset), calc((100% - 72rem) / 2));
+}
+.sf-nomad .sf-footer .sf-promotion-trigger {
+  color: inherit;
+}
+@container (max-width: 767px) {
+  .sf-hero-cinematic {
+    min-height: 660px;
+    padding: 7rem 1rem 2rem;
+  }
+  .sf-hero-cinematic .sf-search-bar {
+    margin-top: 2rem;
+  }
+  .sf-nomad .sf-story-image {
+    grid-template-columns: 1fr;
+  }
+  .sf-nomad .sf-tour-feature .sf-tour-content {
+    padding-inline: 0;
+  }
+}
